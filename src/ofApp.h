@@ -21,7 +21,10 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);		
 
 		ofVideoPlayer 		fingerMovie;
+		ofVideoPlayer 		m0;
+		ofVideoPlayer 		m1;
 		ofVideoPlayer 		m2;
+		ofVideoPlayer 		m3;
 		bool                frameByframe;
 };
 

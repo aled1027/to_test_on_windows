@@ -9,24 +9,53 @@ void ofApp::setup(){
 	frameByframe = false;
 
 	// Uncomment this to show movies with alpha channels
-	// fingerMovie.setPixelFormat(OF_PIXELS_RGBA);
-    string path;
-    path = "movies/fingers.mov";
-    path = "movies/Gut.mov";
+	m0.setPixelFormat(OF_PIXELS_RGBA);
+	m1.setPixelFormat(OF_PIXELS_RGBA);
+	m2.setPixelFormat(OF_PIXELS_RGBA);
+	m3.setPixelFormat(OF_PIXELS_RGBA);
 
-	fingerMovie.loadMovie(path);
-    fingerMovie.setLoopState(OF_LOOP_NORMAL);
-	fingerMovie.play();
 
-	m2.loadMovie(path);
-    m2.setLoopState(OF_LOOP_NORMAL);
-	m2.play();
+
+    //#define FIVE_FORTY
+
+    m0.loadMovie("movies/Gut.mov");
+	m1.loadMovie("movies/720p/Gut.mov");
+
+    //#ifdef FIVE_FORTY
+	//    m0.loadMovie("movies/Gut.mov");
+	//    m1.loadMovie("movies/Gut.mov");
+	//    //m2.loadMovie("movies/Gut.mov");
+	//    //m3.loadMovie("movies/Gut.mov");
+    //#else
+	//    m0.loadMovie("movies/720p/Gut.mov");
+	//    m1.loadMovie("movies/720p/Gut.mov");
+
+	//    //m1.loadMovie("movies/720p/Nose.mov");
+	//    //m2.loadMovie("movies/720p/Skin.mov");
+	//    //m3.loadMovie("movies/720p/Mouth.mov");
+    //#endif
+
+    m0.setLoopState(OF_LOOP_NORMAL);
+	m0.play();
+    m1.setLoopState(OF_LOOP_NORMAL);
+	m1.play();
+    //m2.setLoopState(OF_LOOP_NORMAL);
+	//m2.play();
+    //m3.setLoopState(OF_LOOP_NORMAL);
+	//m3.play();
+
+    m0.setVolume(0.0);
+    m1.setVolume(0.0);
+    m2.setVolume(0.0);
+    m3.setVolume(0.0);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    fingerMovie.update();
-    m2.update();
+    m0.update();
+    m1.update();
+    //m2.update();
+    //m3.update();
 }
 
 //--------------------------------------------------------------
@@ -37,8 +66,12 @@ void ofApp::draw(){
     ofDrawBitmapString(reportStream.str(), 10, 10);
 
 	ofSetHexColor(0xFFFFFF);
-    fingerMovie.draw(20,20, 1920/4, 1080/4);
-    m2.draw(500,20, 1920/4, 1080/4);
+
+    //m0.draw(10,10,480,270);
+    m0.draw(10,10,1920,1080);
+    m1.draw(600,10,1920,1080);
+    //m2.draw(10,300,480,270);
+    //m3.draw(500,300,480,270);
 
     //ofSetHexColor(0x000000);
     //unsigned char * pixels = fingerMovie.getPixels();
